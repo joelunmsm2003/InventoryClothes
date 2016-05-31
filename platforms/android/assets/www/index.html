@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ionic/js/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+    <script src="lib/ionic/js/firebase.js"></script>
+    <script src="lib/ionic/js/ngstorage.js"></script>
+    <script src="lib/ionic/js/angularfire.min.js"></script>
+ 
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter" ng-controller="ExampleController" class="platform-android platform-cordova platform-webview">
+
+    <ion-pane>
+   
+
+      <div class="bar bar-header">
+  <h1 class="title">InventoryClothes</h1>
+      <a class="button" ng-click="scanBarcode()"><i class="icon ion-disc"></i>
+      </a>
+     
+         <a class="button" ng-click="modal.show()"><i class="icon ion-edit"></i></a>
+</div>
+<div class="bar bar-subheader">
+  
+           <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="Search" ng-model="searchText">
+      </label>
+</div>
+
+
+      <ion-content >
+
+
+<script id="my-modal.html" type="text/ng-template">
+
+  <ion-modal-view>
+    <ion-header-bar>
+    
+        <h1 class="title">Prenda</h1>
+        <button class="button button-clear ion-android-cancel" ng-click="modal.hide()">Cancel</button>
+        
+
+
+    </ion-header-bar>
+    <ion-content>
+
+      <label class="item item-input">
+      <input type="text" placeholder="Id" ng-model="prenda.id">
+      </label>
+
+      <label class="item item-input">
+      <input type="text" placeholder="Modelo" ng-model="prenda.modelo">
+      </label>
+
+      <label class="item item-input">
+      <input type="text" placeholder="Color" ng-model="prenda.color">
+      </label>
+
+      <label class="item item-input">
+      <input type="text" placeholder="Talla" ng-model="prenda.talla">
+      </label>
+
+      <label class="item item-input">
+      <input type="text" placeholder="Precio" ng-model="prenda.precio">
+      </label>
+
+      <label class="item item-input">
+      <input type="text" placeholder="Precio" ng-model="prenda.ubicacion">
+      </label>
+
+      <label class='item'>
+      <button class="button button-full button-royal" ng-click="createContact(prenda)">Agregar</button>
+      </label>
+
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+
+     
+
+
+   
+
+     
+
+        <ion-list>
+        <ion-item ng-repeat="item in listas | filter:searchText" class="item-thumbnail-left">
+      
+        
+        <img ng-src="{{item.img}}">
+        <h2>{{item.id}}</h2> 
+        <p>{{item.color}}  {{item.modelo}}  {{item.precio}}  {{item.ubicacion}}  {{item.talla}}  {{item.venta}} {{item.disgusto}}</p>
+          <button class="button button-royal" ng-show='venta' ng-click="vender(item)">Vender</button>
+
+        </ion-item>
+        </ion-list>
+
+
+
+
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
+
+
+<style>
+
+body,.title,.button.button-royal,.item-input input, .item-input textarea{
+font-family: 'Open Sans', sans-serif;
+
+}
+
+</style>

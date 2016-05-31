@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/menu/history.xml",
+        "source": "/home/andiu/QR/platforms/android/res/menu/history.xml"
+    },
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/menu/encode.xml",
+        "source": "/home/andiu/QR/platforms/android/res/menu/encode.xml"
+    },
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/menu/capture.xml",
+        "source": "/home/andiu/QR/platforms/android/res/menu/capture.xml"
+    }
+]

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/andiu/QR/platforms/android/libs"><file name="com.google.zxing.client.android.captureactivity.jar" path="/home/andiu/QR/platforms/android/libs/com.google.zxing.client.android.captureactivity.jar"/></source></dataSet><dataSet config="debug"><source path="/home/andiu/QR/platforms/android/src/debug/jniLibs"/></dataSet></merger>

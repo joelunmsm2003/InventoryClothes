@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/xml/config.xml",
+        "source": "/home/andiu/QR/platforms/android/res/xml/config.xml"
+    },
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/andiu/QR/platforms/android/res/xml/preferences.xml"
+    }
+]

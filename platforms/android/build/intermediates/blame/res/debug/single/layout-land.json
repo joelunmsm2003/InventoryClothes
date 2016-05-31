@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/layout-land/encode.xml",
+        "source": "/home/andiu/QR/platforms/android/res/layout-land/encode.xml"
+    },
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/layout-land/share.xml",
+        "source": "/home/andiu/QR/platforms/android/res/layout-land/share.xml"
+    }
+]

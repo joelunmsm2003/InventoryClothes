@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon.png",
+        "source": "/home/andiu/QR/platforms/android/res/drawable-xhdpi/icon.png"
+    },
+    {
+        "merged": "/home/andiu/QR/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/launcher_icon.png",
+        "source": "/home/andiu/QR/platforms/android/res/drawable-xhdpi/launcher_icon.png"
+    }
+]

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/andiu/QR/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e7dba02aa0fb1dce516838f0ee43152842388c86">
+        <dex dex="/home/andiu/QR/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_e755217dec8fd348db981d87629e3ebcd04380ae.jar" />
+    </item>
+    <item
+        jar="/home/andiu/QR/platforms/android/libs/com.google.zxing.client.android.captureactivity.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="daca75b7de34e1ca229682f2cd54b54e1c324be6">
+        <dex dex="/home/andiu/QR/platforms/android/build/intermediates/pre-dexed/debug/com.google.zxing.client.android.captureactivity_707f701c470df746c874d32c5f5227f428cb8a55.jar" />
+    </item>
+
+</items>
