@@ -88,7 +88,7 @@
       </label>
 
       <label class="item item-input">
-      <input type="text" placeholder="Precio" ng-model="prenda.ubicacion">
+      <input type="text" placeholder="Ubicacion" ng-model="prenda.ubicacion">
       </label>
 
       <label class='item'>
@@ -109,13 +109,13 @@
      
 
         <ion-list>
-        <ion-item ng-repeat="item in listas | filter:searchText" class="item-thumbnail-left">
+        <ion-item ng-repeat="item in listas | filter:searchText | orderBy:'modelo'" class="item-thumbnail-left">
       
         
         <img ng-src="{{item.img}}">
-        <h2>{{item.id}}</h2> 
-        <p>{{item.color}}  {{item.modelo}}  {{item.precio}}  {{item.ubicacion}}  {{item.talla}}  {{item.venta}} {{item.disgusto}}</p>
-          <button class="button button-royal" ng-show='venta' ng-click="vender(item)">Vender</button>
+    
+        <p>  {{item.id}} {{item.modelo}} {{item.color}}  {{item.precio}}  {{item.ubicacion}}  {{item.talla}}  {{item.venta}} {{item.disgusto}}</p>
+          <button class="button" ng-show='venta' ng-click="vender(item)">Vender</button>
 
         </ion-item>
         </ion-list>
@@ -131,7 +131,7 @@
 
 <style>
 
-body,.title,.button.button-royal,.item-input input, .item-input textarea{
+body,.title,.button.button-royal,.item-input input, .item-input textarea,.button{
 font-family: 'Open Sans', sans-serif;
 
 }

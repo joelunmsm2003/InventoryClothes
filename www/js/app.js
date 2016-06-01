@@ -107,6 +107,7 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
 
       refmodelo.set({
 
+          id:data.id,
           talla:data.talla,
           color:data.color,
           modelo:data.modelo,
@@ -145,7 +146,6 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
 
 
 
-
       $cordovaBarcodeScanner.scan().then(function(imageData) {
 
       var ref = new Firebase("https://monitoreo.firebaseio.com/gamarra/codigo");
@@ -156,6 +156,8 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
 
 
       $scope.searchText = f.val().modelo
+
+
 
 
       });
