@@ -111,7 +111,7 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
 
     $scope.vender = function(sl) {
 
-
+      var ref = new Firebase("https://monitoreo.firebaseio.com/gamarra/codigo");
 
       console.log('SIn',sl.$id)
 
@@ -137,6 +137,8 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
 
 
       $cordovaBarcodeScanner.scan().then(function(imageData) {
+
+      var ref = new Firebase("https://monitoreo.firebaseio.com/gamarra/codigo");
 
             
       ref.orderByChild("id").equalTo(imageData.text).on("child_added", function(f) {
