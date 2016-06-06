@@ -23,7 +23,7 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
   });
 })
 
-.controller("ExampleController", function($scope, $cordovaBarcodeScanner,$firebaseArray,$firebaseObject,$localStorage,$filter,$ionicModal) {
+.controller("ExampleController", function($scope,$http, $cordovaBarcodeScanner,$firebaseArray,$firebaseObject,$localStorage,$filter,$ionicModal) {
 
 
     var connectedRef = new Firebase("https://monitoreo.firebaseio.com/.info/connected");
@@ -111,7 +111,8 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
           talla:data.talla,
           color:data.color,
           modelo:data.modelo,
-          ubicacion:data.ubicacion
+          ubicacion:data.ubicacion,
+          excel:'0'
        
       })
 
@@ -122,21 +123,38 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
 
     $scope.vender = function(sl) {
 
+      var currentTime = new Date();
+
       var ref = new Firebase("https://monitoreo.firebaseio.com/gamarra/codigo");
 
       console.log('SIn',sl.$id)
-
 
       var refmodelo = ref.child(sl.$id);
 
       refmodelo.update({
     
-          venta:'Vendido'
+          estado:'Vendido',
+          fventa : currentTime,
+          excel:'1'
        
       })
 
 
-   
+    var connectedRef = new Firebase("https://monitoreo.firebaseio.com/.info/connected");
+
+    connectedRef.on("value", function(snap) {
+  
+    if (snap.val() === true) {
+
+      $http.get("http://localhost:8000/vendido/"+sl.$id+'/').success(function(response) {});
+     
+    } 
+
+
+    });
+
+      
+      
 
     }
 
@@ -144,30 +162,20 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
  
     $scope.scanBarcode = function() {
 
+        $cordovaBarcodeScanner.scan().then(function(imageData) {
 
+        var ref = new Firebase("https://monitoreo.firebaseio.com/gamarra/codigo");
+              
+        ref.orderByChild("id").equalTo(imageData.text).on("child_added", function(f) {
+        console.log(f.key(),f.val());
 
-      $cordovaBarcodeScanner.scan().then(function(imageData) {
-
-      var ref = new Firebase("https://monitoreo.firebaseio.com/gamarra/codigo");
-
-            
-      ref.orderByChild("id").equalTo(imageData.text).on("child_added", function(f) {
-      console.log(f.key(),f.val());
-
-
-      $scope.searchText = f.val().modelo
-
-
-
+        $scope.searchText = f.val().modelo
 
       });
-
-            
-
-
-
+    
             console.log("Barcode Format -> " + imageData.format);
             console.log("Cancelled -> " + imageData.cancelled);
+        
         }, function(error) {
             console.log("An error happened -> " + error);
         });
