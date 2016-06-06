@@ -8,3 +8,5 @@ Instalacion
 
 
 python -m SimpleHTTPServer 8000
+
+http://192.241.255.109/

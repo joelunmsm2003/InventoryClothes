@@ -146,7 +146,7 @@ angular.module('starter', ['ionic','ngCordova','firebase','ngStorage'])
   
     if (snap.val() === true) {
 
-      $http.get("http://localhost:8000/vendido/"+sl.$id+'/').success(function(response) {});
+      $http.get("http://192.241.255.109:1000/vendido/"+sl.$id+'/').success(function(response) {});
      
     } 
 
