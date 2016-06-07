@@ -92,15 +92,48 @@
       </label>
 
       <label class='item'>
-      <button class="button button-full button-royal" ng-click="createContact(prenda)">Agregar</button>
+      <button class="button button-full button" ng-click="createContact(prenda)">Agregar</button>
       </label>
 
 
     </ion-content>
   </ion-modal-view>
+
 </script>
 
 
+<script id="ubicacion.html" type="text/ng-template">
+
+  <ion-modal-view>
+    <ion-header-bar>
+    
+        <h1 class="title">Ubicacion Actual {{changetraslado.ubicacion}}</h1>
+
+
+        <button class="button button-clear ion-android-cancel" ng-click="ubicacion.hide()">Cancel</button>
+        
+
+    
+
+    </ion-header-bar>
+    <div class="bar bar-subheader">
+  <h2 class="title">{{changetraslado.modelo}} {{changetraslado.color}} {{changetraslado.talla}} {{changetraslado.precio}} </h2>
+</div>
+    
+    <ion-content>
+    <ion-list>
+
+    <ion-checkbox ng-click="torre(changetraslado)" ng-model="changetraslado.torre">Torre</ion-checkbox>
+    <ion-checkbox ng-click="centro(changetraslado)" ng-model="changetraslado.centro">Centro</ion-checkbox>
+    <ion-checkbox ng-click="almacen(changetraslado)" ng-model="changetraslado.almacen">Almacen</ion-checkbox>
+
+    </ion-list>
+
+
+    </ion-content>
+  </ion-modal-view>
+
+</script>
      
 
 
@@ -109,13 +142,16 @@
      
 
         <ion-list>
-        <ion-item ng-repeat="item in listas | filter:searchText | orderBy:'modelo'" class="item-thumbnail-left">
+        <ion-item ng-repeat="item in listas | filter:searchText | orderBy:'modelo'" class="item-thumbnail-left"style="background:{{item.background}};">
       
         
         <img ng-src="{{item.img}}">
     
-        <p>  {{item.id}} {{item.modelo}} {{item.color}}  {{item.precio}}  {{item.ubicacion}}  {{item.talla}}  {{item.estado}} </p>
-          <button class="button" ng-show='venta' ng-click="vender(item)">Vender</button>
+        <p>  {{item.id}} {{item.modelo}} {{item.color}}  {{item.precio}}  {{item.ubicacion}}  {{item.talla}}  {{item.estado}} {{item.venta}} </p>
+          <button class="button" ng-show='item.venta' ng-click="vender(item)">Vender
+          </button>
+
+          <a class="button" ng-show='item.venta' ng-click="traslado(item)">Traslado</a>
 
         </ion-item>
         </ion-list>
@@ -132,14 +168,28 @@
 <style>
 
 body,.title,.button.button-royal,.item-input input, .item-input textarea,.button{
-font-family: 'Open Sans', sans-serif;
-
+/*font-family: 'Open Sans', sans-serif;
+*/
 }
 
 .scroll-content {
     position: absolute;
     top: 86px;
 
+}
+
+.item p {
+color: #fff; 
+font-size: 17px;
+margin-bottom: 2px;
+/* font-weight: bold; */
+}
+
+.item-thumbnail-left, .item-thumbnail-left .item-content {
+padding-top: 8px;
+padding-left: 106px;
+min-height: 100px;
+background: #5756E8;
 }
 
 </style>
